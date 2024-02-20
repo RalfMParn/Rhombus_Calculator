@@ -1,7 +1,10 @@
 from cmath import sqrt
 
-
 class Model:
+    pass
+
+
+class Rhombus:
     def __init__(self):
         self.view = None
 
@@ -12,18 +15,23 @@ class Model:
             return True
         except ValueError:
             return False
-    def calculate_rhombus_values(self, diag1, diag2):
+    def calculate_rhombus_values(self, side_length, height):
+        self.side_length = side_length
+        self.height = height
         # Calculate area and perimeter of rhombus
-        area = (diag1 * diag2) / 2
-        perimeter = 2 * (sqrt(diag1 ** 2 + diag2 ** 2))
-        #  lng_diag = sqrt(diag1 ** 2 + diag2 ** 2)
-        if diag1 > diag2:
-            lng_diag = diag1
-        else:
-            lng_diag = diag2
+        area = self.side_length * self.height
 
-        # Rounds the number to 6 decimal places
+        perimeter = 4 * self.side_length
+        diagonal1 = 2 * self.height
+        diagonal2 = 2 * sqrt(self.side_length ** 2 - (self.height / 2) ** 2)
+
         perimeter = round(perimeter.real, 6)
-        lng_diag = round(lng_diag.real, 6)
+        diagonal1 = round(diagonal1.real, 6)
+        diagonal2 = round(diagonal2.real, 6)
 
-        return area, perimeter, lng_diag
+        if diagonal1 > diagonal2:
+            lng_diag = diagonal1
+        else:
+            lng_diag = diagonal2
+
+        return area, perimeter, diagonal1, diagonal2, lng_diag
