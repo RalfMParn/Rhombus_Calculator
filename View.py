@@ -52,10 +52,10 @@ class View(Tk):
                             command=lambda: Controller.calculate_and_display_values(self.controller))
         btn_arvuta.grid(row=1, column=3, padx=5, pady=5)
 
-        lbl_info = Label(self.top_frame, text="Diagonal 1", bg="#ffe5c5", font=self.default_Font)
+        lbl_info = Label(self.top_frame, text="Ääre pikkus", bg="#ffe5c5", font=self.default_Font)
         lbl_info.grid(row=0, column=0, padx=5, pady=5)
 
-        lbl_info2 = Label(self.top_frame, text="Diagonal 2", bg="#ffe5c5", font=self.default_Font)
+        lbl_info2 = Label(self.top_frame, text="Kõrgus", bg="#ffe5c5", font=self.default_Font)
         lbl_info2.grid(row=1, column=0, padx=5, pady=5)
 
         diag_entry1 = Entry(self.top_frame, font=self.default_Font)
@@ -75,7 +75,8 @@ class View(Tk):
 
     @staticmethod
     def display_error(error):
-        messagebox.showerror("Viga", f"Raadius on vigane. Diagonals peab olema positiivne arv. Error: {error}")
+        messagebox.showerror("Viga", f"Error: {error}")
+
 
     def on_close(self):
         if messagebox.askokcancel("Väljub kalkulaatorist", "Oled sa kindel, et tahad kalkulaatorist lahkuda?"):
