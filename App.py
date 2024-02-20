@@ -1,12 +1,11 @@
-from Controller import Controller
-from Model import Model
+from Model import Rhombus
 from View import View
 
 
 class App:
     def __init__(self):
         self.view = View(self)
-        self.model = Model()
+        self.model = Rhombus()
 
     def main(self):
         self.view.main()
@@ -15,3 +14,4 @@ class App:
 if __name__ == "__main__":
     rhombus = App()
     rhombus.main()
+
